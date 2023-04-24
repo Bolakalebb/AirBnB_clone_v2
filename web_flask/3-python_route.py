@@ -3,40 +3,36 @@
     web application must be listening 
     on 0.0.0.0, port 5000
 """
+
 from flask import Flask
 
-app = Flask(__name__)
+app = Flask("__name__")
 
-@app.route("/", strict_slashes=False)
-def hello_hbnb():
-    """Displays 'Hello HBNB!'."""
-    return "Hello HBNB!"
+
+@app.route('/', strict_slashes=False)
+def hello():
+    """Return string"""
+    return ("Hello HBNB!")
 
 
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
-    """Prints 'HBNB'."""
-    return "HBNB"
+    """Returns string"""
+    return ("HBNB")
 
 
 @app.route("/c/<text>", strict_slashes=False)
-def c(text):
-    """Prints 'C' followed by the value of <text>.
-    Replaces any underscores in <text> with slashes.
-    """
-    text = text.replace("_", " ")
-    return "C {}".format(text)
+def cText(text):
+    """print C followed by the value of the text variable"""
+    return "C {}".format(text.replace("_", " "))
 
 
-@app.route("/python", strict_slashes=False)
+@app.route('/python', strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
-def python(text="is cool"):
-    """Prints 'Python' followed by the value of <text>.
-    Replaces any underscores in <text> with slashes.
-    """
-    text = text.replace("_", " ")
-    return "Python {}".format(text)
+def pythonText(text="is cool"):
+    """print Python followed by the value of the text variable"""
+    return "Python {}".format(text.replace("_", " "))
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=None)
