@@ -7,16 +7,16 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 
-def hello():
 
+def hello():
     """Start Flask web application"""
 
     return 'Hello HBNB!'
 
 @app.route('/hbnb', strict_slashes=False)
 
-def hbnb():
 
+def hbnb():
     """Adding route /hbnb"""
 
     return 'HBNB'
