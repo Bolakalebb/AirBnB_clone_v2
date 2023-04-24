@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """script that starts a Flask web application:
-    web application must be listening 
-    on 0.0.0.0, port 5000
+    web application must be listening on 0.0.0.0, port 5000
 """
 
 from flask import Flask
@@ -23,14 +22,14 @@ def hbnb():
 
 @app.route("/c/<text>", strict_slashes=False)
 def cText(text):
-    """print C followed by the value of the text variable"""
+    """print C and the value of the text variable"""
     return "C {}".format(text.replace("_", " "))
 
 
 @app.route('/python', strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def pythonText(text="is cool"):
-    """print Python followed by the value of the text variable"""
+    """print Python and the value of the text variable"""
     return "Python {}".format(text.replace("_", " "))
 
 
