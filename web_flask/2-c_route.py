@@ -1,32 +1,35 @@
 #!/usr/bin/python3
 “””Starts Flask web app
-    / - display “Hello HBNB!”
-    /hbnb – display “HBNB”
-    /c/<text> - display “C <text>”
 “””
-From flask import Flask
 
-App = Flask(__name__)
+from flask import Flask
 
+app = Flask(__name__)
 
-@app.route(‘/’, strict_slashes=False)
-Def hbnb_route():
-    “””display Hello HBNB”””
-    Return “Hello HBNB!”
+@app.route('/', strict_slashes=False)
 
+def hello():
 
-@app.route(‘/hbnb’, strict_slashes=False)
-Def hbnb():
-    “””display HBNB”””
-    Return “HBNB”
+    """Start Flask web application"""
 
+    return 'Hello HBNB!'
 
-@app.route(‘/c/<string:text>’, strict_slashes=False)
-Def c_text(text):
-    “””display C followed by <text> content”””
-    Text = text.replace(“_”, “ “)
-    Return “C %s” % text
+@app.route('/hbnb', strict_slashes=False)
 
+def hbnb():
 
-If __name__ == “__main__”:
-    App.run(host=”0.0.0.0”)
+    """Adding route /hbnb"""
+
+    return 'HBNB'
+
+@app.route('/c/<string:text>', strict_slashes=False)
+
+def text(text=None):
+
+    """Dynamic inputed text: replace _ for space and show text"""
+
+    return "C {}".format(text.replace('_', ' '))
+
+if __name__ == '__main__':
+
+    app.run(host='0.0.0.0', port=5000
