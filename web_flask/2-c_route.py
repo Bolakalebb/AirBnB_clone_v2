@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-“””Starts Flask web app
-“””
+“””Starts Flask web app“””
 
 from flask import Flask
 
@@ -11,8 +10,8 @@ app = Flask(__name__)
 def hello():
 
     """Start Flask web application"""
-
-    return 'Hello HBNB!'
+    
+    return ('Hello HBNB!')
 
 @app.route('/hbnb', strict_slashes=False)
 
@@ -22,13 +21,13 @@ def hbnb():
 
     return 'HBNB'
 
-@app.route('/c/<string:text>', strict_slashes=False)
+@app.route('/c/<text>', strict_slashes=False)
 
-def text(text=None):
+def cText(text):
 
     """Dynamic inputed text: replace _ for space and show text"""
 
-    return "C {}".format(text.replace('_', ' '))
+    return 'C {}'.format(text.replace('_', ' '))
 
 if __name__ == '__main__':
 
