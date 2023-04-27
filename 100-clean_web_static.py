@@ -6,6 +6,7 @@ from fabric.api import *
 
 env.hosts = ['54.158.180.235', '54.237.0.75']
 
+
 def do_pack():
     """
     Targging project directory into a packages as .tgz
@@ -69,4 +70,3 @@ def do_clean(number=0):
         with cd('/data/web_static/releases/'):
             run("sudo ls -lv | rev | cut -f 1 | \
             rev | head -n +{} | xargs -d '\n' rm -rf".format(number))
-
